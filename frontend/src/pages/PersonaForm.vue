@@ -79,7 +79,7 @@ const submitPersona = () => {
 		responses: JSON.stringify(responses),
 	}).then(() => {
 		router.push({
-			name: 'Courses',
+			name: 'Modules'
 		})
 	})
 }
@@ -92,7 +92,7 @@ const skipPersonaForm = () => {
 		value: 1,
 	}).then(() => {
 		router.push({
-			name: 'Courses',
+			name: 'Modules'
 		})
 	})
 }

@@ -22,7 +22,7 @@
 			<NumberChart
 				class="border rounded-md"
 				:config="{
-					title: __('Courses'),
+					title: __('Modules'),
 					value: batch.data.courses?.length || 0,
 				}"
 			/>

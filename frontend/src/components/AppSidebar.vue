@@ -354,7 +354,7 @@ const addPrograms = () => {
 		settingsStore.learningPaths.data
 	) {
 		sidebarLinks.value = sidebarLinks.value.filter(
-			(link) => link.label !== 'Courses'
+			(link) => link.label !== 'Modules'
 		)
 		activeFor.push('CourseDetail')
 		activeFor.push('Lesson')
@@ -434,7 +434,7 @@ const steps = reactive([
 		onClick: () => {
 			minimize.value = true
 			router.push({
-				name: 'Courses',
+				name: 'Modules',
 			})
 		},
 	},
@@ -469,7 +469,7 @@ const steps = reactive([
 					params: { courseName: course },
 				})
 			} else {
-				router.push({ name: 'Courses' })
+				router.push({ name: 'Modules' })
 			}
 		},
 	},

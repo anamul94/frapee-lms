@@ -60,7 +60,7 @@
 					</template>
 					<template #tab-panel="{ tab }">
 						<div class="pt-5 px-5 pb-10">
-							<div v-if="tab.label == 'Courses'">
+							<div v-if="tab.label == 'Modules'">
 								<BatchCourses :batch="batch.data.name" />
 							</div>
 							<div v-else-if="tab.label == 'Dashboard' && isStudent">
@@ -261,7 +261,7 @@ const tabs = computed(() => {
 	})
 
 	batchTabs.push({
-		label: 'Courses',
+		label: 'Modules',
 		icon: BookOpen,
 	})
 

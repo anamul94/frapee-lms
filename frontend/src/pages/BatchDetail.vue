@@ -41,7 +41,7 @@
 			<div v-if="batch.data.courses.length">
 				<div class="flex items-center mt-10">
 					<div class="text-2xl font-semibold">
-						{{ __('Courses') }}
+						{{ __('Modules') }}
 					</div>
 				</div>
 				<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-5">

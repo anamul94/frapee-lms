@@ -10,7 +10,7 @@
 				<Tooltip :text="__('Published Courses')">
 					<NumberChart
 						class="border rounded-md"
-						:config="{ title: 'Courses', value: chartDetails.data.courses }"
+						:config="{ title: 'Modules', value: chartDetails.data.courses }"
 					/>
 				</Tooltip>
 				<Tooltip :text="__('Active Members')">

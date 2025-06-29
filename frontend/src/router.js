@@ -8,12 +8,12 @@ const routes = [
 	{
 		path: '/',
 		redirect: {
-			name: 'Courses',
+			name: 'Modules'
 		},
 	},
 	{
 		path: '/courses',
-		name: 'Courses',
+		name: 'Modules',
 		component: () => import('@/pages/Courses.vue'),
 	},
 	{

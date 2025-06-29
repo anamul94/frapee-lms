@@ -291,7 +291,7 @@ const tabsStructure = computed(() => {
 					description: 'Choose the items you want to show in the sidebar',
 					fields: [
 						{
-							label: 'Courses',
+							label: 'Modules',
 							name: 'courses',
 							type: 'checkbox',
 						},

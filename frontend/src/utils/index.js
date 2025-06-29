@@ -422,11 +422,11 @@ export function getUserTimezone() {
 export function getSidebarLinks() {
 	return [
 		{
-			label: 'Courses',
+			label: 'Modules',
 			icon: 'BookOpen',
-			to: 'Courses',
+			to: 'Modules',
 			activeFor: [
-				'Courses',
+				'Modules',
 				'CourseDetail',
 				'Lesson',
 				'CourseForm',

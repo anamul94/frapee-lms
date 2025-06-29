@@ -35,7 +35,7 @@
 				<FormControl
 					type="select"
 					v-model="details.course"
-					:label="__('Course')"
+					:label="__('Modules')"
 					:options="getCourses()"
 				/>
 				<Link

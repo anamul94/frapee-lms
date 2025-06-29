@@ -163,7 +163,7 @@
 								}"
 							>
 								<Button>
-									{{ __('Back to Course') }}
+									{{ __('Back to Module') }}
 								</Button>
 							</router-link>
 						</div>
@@ -438,7 +438,7 @@ const progress = createResource({
 })
 
 const breadcrumbs = computed(() => {
-	let items = [{ label: 'Courses', route: { name: 'Courses' } }]
+	let items = [{ label: 'Modules', route: { name: 'Modules' } }]
 	items.push({
 		label: lesson?.data?.course_title,
 		route: { name: 'CourseDetail', params: { courseName: props.courseName } },

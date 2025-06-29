@@ -130,7 +130,7 @@
 		:options="{
 			title:
 				currentForm == 'course'
-					? __('New Program Course')
+					? __('New Program Module')
 					: __('New Program Member'),
 			actions: [
 				{
@@ -152,7 +152,7 @@
 				:filters="{
 					disable_self_learning: 1,
 				}"
-				:label="__('Program Course')"
+				:label="__('Program Module')"
 				:description="
 					__(
 						'Only courses for which self learning is disabled can be added to program.'

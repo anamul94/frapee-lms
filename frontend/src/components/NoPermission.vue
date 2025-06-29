@@ -12,7 +12,7 @@
 			</div>
 			<router-link
 				:to="{
-					name: 'Courses',
+					name: 'Modules'
 				}"
 			>
 				<Button variant="solid" class="mt-2">

@@ -469,8 +469,8 @@ const validateLesson = () => {
 const breadcrumbs = computed(() => {
 	let crumbs = [
 		{
-			label: 'Courses',
-			route: { name: 'Courses' },
+			label: 'Modules',
+			route: { name: 'Modules' },
 		},
 		{
 			label: lessonDetails.data?.course_title,

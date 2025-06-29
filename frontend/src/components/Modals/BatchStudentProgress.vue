@@ -88,7 +88,7 @@
 					>
 						<div class="flex items-center border-b pb-1 font-medium">
 							<span class="flex-1">
-								{{ __('Courses') }}
+								{{ __('Modules') }}
 							</span>
 							<span>
 								{{ __('Progress') }}

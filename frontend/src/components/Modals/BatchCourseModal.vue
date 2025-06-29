@@ -17,7 +17,7 @@
 			<Link
 				doctype="LMS Course"
 				v-model="course"
-				:label="__('Course')"
+				:label="__('Modules')"
 				:required="true"
 				:onCreate="
 					(value, close) => {

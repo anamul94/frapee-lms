@@ -65,7 +65,7 @@ const user = inject('$user')
 
 onMounted(() => {
 	if (!user.data?.is_instructor && !user.data?.is_moderator)
-		router.push({ name: 'Courses' })
+		router.push({ name: 'Modules' })
 })
 
 const props = defineProps({

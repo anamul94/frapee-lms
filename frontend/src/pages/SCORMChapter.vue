@@ -184,8 +184,8 @@ const setupSCORMAPI = () => {
 const breadcrumbs = computed(() => {
 	return [
 		{
-			label: 'Courses',
-			route: { name: 'Courses' },
+			label: 'Modules',
+			route: { name: 'Modules' }
 		},
 		{
 			label: chapter.doc?.course_title,
