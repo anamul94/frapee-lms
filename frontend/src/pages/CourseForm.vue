@@ -224,7 +224,7 @@
 							<FormControl
 								type="checkbox"
 								v-model="course.paid_course"
-								:label="__('Paid Course')"
+								:label="__('Paid Module')"
 							/>
 							<FormControl
 								type="checkbox"
@@ -373,7 +373,7 @@ const meta = reactive({
 
 onMounted(() => {
 	if (!user.data?.is_moderator && !user.data?.is_instructor) {
-		router.push({ name: 'Courses' })
+		router.push({ name: 'Modules' })
 	}
 
 	if (props.courseName !== 'new') {
@@ -558,13 +558,13 @@ const deleteCourse = createResource({
 	},
 	onSuccess() {
 		toast.success(__('Course deleted successfully'))
-		router.push({ name: 'Courses' })
+		router.push({ name: 'Modules' })
 	},
 })
 
 const trashCourse = () => {
 	$dialog({
-		title: __('Delete Course'),
+		title: __('Delete Module'),
 		message: __(
 			'Deleting the course will also delete all its chapters and lessons. Are you sure you want to delete this course?'
 		),
@@ -632,15 +632,15 @@ const check_permission = () => {
 	})
 
 	if (!user_is_instructor) {
-		router.push({ name: 'Courses' })
+		router.push({ name: 'Modules' })
 	}
 }
 
 const breadcrumbs = computed(() => {
 	let crumbs = [
 		{
-			label: 'Courses',
-			route: { name: 'Courses' },
+			label: 'Modules',
+			route: { name: 'Modules' },
 		},
 	]
 	if (courseResource.data) {
@@ -650,7 +650,7 @@ const breadcrumbs = computed(() => {
 		})
 	}
 	crumbs.push({
-		label: props.courseName == 'new' ? 'New Course' : 'Edit Course',
+		label: props.courseName == 'new' ? 'New Module' : 'Edit Module',
 		route: { name: 'CourseForm', params: { courseName: props.courseName } },
 	})
 	return crumbs
@@ -658,7 +658,7 @@ const breadcrumbs = computed(() => {
 
 usePageMeta(() => {
 	return {
-		title: courseResource.data?.title || __('New Course'),
+		title: courseResource.data?.title || __('New Module'),
 		icon: brand.favicon,
 	}
 })

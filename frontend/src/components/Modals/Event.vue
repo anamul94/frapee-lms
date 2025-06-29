@@ -21,7 +21,7 @@
 								</span>
 							</div>
 						</Tooltip>
-						<Tooltip :text="__('Course')">
+						<Tooltip :text="__('Modules')">
 							<div class="flex items-center space-x-2 w-fit">
 								<BookOpen class="h-4 w-4 stroke-1.5" />
 								<span>

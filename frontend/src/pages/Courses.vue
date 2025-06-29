@@ -23,7 +23,7 @@
 			class="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:items-center justify-between mb-5"
 		>
 			<div class="text-lg text-ink-gray-9 font-semibold">
-				{{ __('All Courses') }}
+				{{ __('All Modules') }}
 			</div>
 			<div
 				class="flex flex-col space-y-2 lg:space-y-0 lg:flex-row lg:items-center lg:space-x-4"
@@ -328,14 +328,14 @@ const courseTabs = computed(() => {
 
 const breadcrumbs = computed(() => [
 	{
-		label: __('Courses'),
-		route: { name: 'Courses' },
+		label: __('Modules'),
+		route: { name: 'Modules' },
 	},
 ])
 
 usePageMeta(() => {
 	return {
-		title: __('Courses'),
+		title: __('Modules'),
 		icon: brand.favicon,
 	}
 })

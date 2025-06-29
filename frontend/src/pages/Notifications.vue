@@ -77,7 +77,7 @@ const activeTab = ref('Unread')
 const router = useRouter()
 
 onMounted(() => {
-	if (!user.data) router.push({ name: 'Courses' })
+	if (!user.data) router.push({ name: 'Modules' })
 
 	socket.on('publish_lms_notifications', (data) => {
 		unReadNotifications.reload()

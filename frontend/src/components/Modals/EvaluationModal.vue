@@ -17,7 +17,7 @@
 			<div class="flex flex-col gap-4">
 				<div>
 					<div class="mb-1.5 text-sm text-ink-gray-5">
-						{{ __('Course') }}
+						{{ __('Modules') }}
 					</div>
 					<Select v-model="evaluation.course" :options="getCourses()" />
 				</div>

@@ -135,7 +135,7 @@
 		<div v-else-if="access.data?.message">
 			<NotPermitted
 				:text="access.data.message"
-				:buttonLabel="type == 'course' ? 'Checkout Course' : 'Checkout Batch'"
+				:buttonLabel="type == 'course' ? 'Checkout Module' : 'Checkout Batch'"
 				:buttonLink="
 					type == 'course' ? `/lms/courses/${name}` : `/lms/batches/${name}`
 				"

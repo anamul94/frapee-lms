@@ -26,7 +26,7 @@ const fromLesson = ref(false)
 
 onMounted(() => {
 	if (!user.data) {
-		router.push({ name: 'Courses' })
+		router.push({ name: 'Modules' })
 	}
 
 	if (new URLSearchParams(window.location.search).get('fromLesson')) {

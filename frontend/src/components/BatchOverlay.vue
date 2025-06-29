@@ -34,7 +34,7 @@
 			class="flex items-center mb-3 text-ink-gray-7"
 		>
 			<BookOpen class="h-4 w-4 stroke-1.5 mr-2" />
-			<span> {{ batch.data.courses.length }} {{ __('Courses') }} </span>
+			<span> {{ batch.data.courses.length }} {{ __('Modules') }} </span>
 		</div>
 		<DateRange
 			:startDate="batch.data.start_date"

@@ -138,7 +138,7 @@ watch(
 )
 
 const breadcrumbs = computed(() => {
-	let items = [{ label: 'Courses', route: { name: 'Courses' } }]
+	let items = [{ label: 'Modules', route: { name: 'Modules' } }]
 	items.push({
 		label: course?.data?.title,
 		route: { name: 'CourseDetail', params: { courseName: course?.data?.name } },

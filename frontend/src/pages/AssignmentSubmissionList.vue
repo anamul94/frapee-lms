@@ -102,7 +102,7 @@ const status = ref('')
 
 onMounted(() => {
 	if (!user.data?.is_instructor && !user.data?.is_moderator) {
-		router.push({ name: 'Courses' })
+		router.push({ name: 'Modules' })
 	}
 	assignmentID.value = router.currentRoute.value.query.assignmentID
 	member.value = router.currentRoute.value.query.member

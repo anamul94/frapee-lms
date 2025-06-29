@@ -2,7 +2,7 @@
 	<div>
 		<div class="flex items-center justify-between mb-4">
 			<div class="text-lg font-semibold text-ink-gray-9">
-				{{ __('Courses') }}
+				{{ __('Modules') }}
 			</div>
 			<Button v-if="canSeeAddButton()" @click="openCourseModal()">
 				<template #prefix>

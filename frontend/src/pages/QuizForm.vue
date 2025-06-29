@@ -252,7 +252,7 @@ onMounted(() => {
 		!user.data?.is_moderator &&
 		!user.data?.is_instructor
 	) {
-		router.push({ name: 'Courses' })
+		router.push({ name: 'Modules' })
 	}
 	if (props.quizID !== 'new') {
 		quizDetails.reload()
