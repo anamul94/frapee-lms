@@ -35,7 +35,7 @@ bench new-site lms.localhost \
 --no-mariadb-socket
 
 bench --site lms.localhost install-app lms
-bench --site lms.localhost set-config developer_mode 1
+bench --site lms.localhost set-config developer_mode 0
 bench --site lms.localhost clear-cache
 bench use lms.localhost
 
