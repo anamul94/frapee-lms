@@ -27,9 +27,6 @@ jobs:
             echo "== Docker Compose Down =="
             docker compose down || echo "docker compose down failed"
 
-            echo "== Removing container 'lms-frappe-1' =="
-            docker rm lms-frappe-1 || echo "Container 'lms-frappe-1' not found or already removed"
-
             echo "== Docker Compose Up =="
             docker compose up -d || { echo "docker compose up failed"; exit 1; }
 
