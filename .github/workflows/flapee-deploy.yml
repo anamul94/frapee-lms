@@ -9,28 +9,75 @@ jobs:
   deploy:
     name: SSH Deploy to EC2
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Run deployment commands on EC2 via SSH
+      - name: Deploy to EC2 via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
+          timeout: 300s
           script: |
-            echo "== CD to project directory =="
-            cd /home/ubuntu/PHISING/LMS/frapee-lms/docker || { echo "Directory not found"; exit 1; }
+            set -e  # Exit on any error
+            
+            echo "=== Starting Deployment at $(date) ==="
+            
+            echo "== Navigating to project directory =="
+            cd /home/ubuntu/PHISING/LMS/frapee-lms/docker || { 
+              echo "ERROR: Project directory not found"; 
+              exit 1; 
+            }
+            
+            echo "== Pulling latest code =="
+            git fetch origin
+            git reset --hard origin/main || { 
+              echo "ERROR: Git operations failed"; 
+              exit 1; 
+            }
+            
+            echo "== Stopping existing containers =="
+            docker compose down --remove-orphans || {
+              echo "WARNING: docker compose down failed, continuing...";
+            }
+            
+            echo "== Cleaning up unused Docker resources =="
+            docker system prune -f --volumes || {
+              echo "WARNING: Docker cleanup failed, continuing...";
+            }
+            
+            echo "== Building and starting containers =="
+            docker compose up -d --build || { 
+              echo "ERROR: docker compose up failed"; 
+              exit 1; 
+            }
+            
+            echo "== Waiting for services to be ready =="
+            sleep 30
+            
+            echo "== Checking container status =="
+            docker compose ps
+            
+            echo "== Checking service health =="
+            if docker compose ps | grep -q "Up"; then
+              echo "SUCCESS: Services are running"
+            else
+              echo "ERROR: Some services failed to start"
+              docker compose logs --tail=50
+              exit 1
+            fi
+            
+            echo "=== Deployment completed successfully at $(date) ==="
 
-            echo "== Docker Compose Down =="
-            docker compose down || echo "docker compose down failed"
-
-            echo "== Removing container 'flappe' =="
-            docker rm lms-frappe-1 || echo "Container 'flappe' not found or already removed"
-
-            echo "== Docker Compose Up =="
-            docker compose up -d || { echo "docker compose up failed"; exit 1; }
-
-            echo "== Deployment complete =="
+      - name: Notify deployment status
+        if: always()
+        run: |
+          if [ ${{ job.status }} == 'success' ]; then
+            echo "✅ Deployment to EC2 completed successfully"
+          else
+            echo "❌ Deployment to EC2 failed"
+          fi
