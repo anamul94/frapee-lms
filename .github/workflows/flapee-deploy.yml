@@ -1,0 +1,36 @@
+name: Deploy to EC2 on main branch update
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: SSH Deploy to EC2
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Run deployment commands on EC2 via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            echo "== CD to project directory =="
+            cd /home/ubuntu/PHISING/LMS/frapee-lms/docker || { echo "Directory not found"; exit 1; }
+
+            echo "== Docker Compose Down =="
+            docker compose down || echo "docker compose down failed"
+
+            echo "== Removing container 'flappe' =="
+            docker rm lms-frappe-1 || echo "Container 'flappe' not found or already removed"
+
+            echo "== Docker Compose Up =="
+            docker compose up -d || { echo "docker compose up failed"; exit 1; }
+
+            echo "== Deployment complete =="
